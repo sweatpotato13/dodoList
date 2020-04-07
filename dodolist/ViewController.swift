@@ -48,5 +48,15 @@ class ViewController: UIViewController {
         
         self.navigationController?.pushViewController(vcName!, animated: true)
     }
+    
+    // Todolist 확인을 위한 임시 버튼
+    @IBAction func goTodos(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        let uvc = storyboard.instantiateViewController(withIdentifier: "TodoVC")
+        
+        self.present(uvc, animated: true)
+    }
 }
 
