@@ -36,12 +36,6 @@ class ViewController: UIViewController {
             foo.text = "Hello world"
         }
     }
-
-    @IBAction func btnBar(_ sender: UIBarButtonItem) {
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "secondVC")
-        
-        self.navigationController?.pushViewController(vcName!, animated: true)
-    }
     
     @IBAction func next(_ sender: Any) {
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "secondVC")
