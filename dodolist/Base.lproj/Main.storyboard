@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="trD-Gg-bTx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -116,23 +116,22 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oy6-NF-ksr">
                                 <rect key="frame" x="20" y="107" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="    DeadLine" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3l-7i-cKj">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    DeadLine" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3l-7i-cKj">
                                 <rect key="frame" x="20" y="149" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="DeadLine_onClick:" destination="NiU-aN-nlc" eventType="touchDown" id="Tgc-eq-T8r"/>
                                     <action selector="btnAdd:" destination="NiU-aN-nlc" eventType="editingDidEnd" id="44V-SJ-31s"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aG6-mx-Hdv">
                                 <rect key="frame" x="20" y="191" width="374" height="196"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -141,7 +140,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Xia-Kh-bmz"/>
                     <connections>
-                        <outlet property="tfDeadLine" destination="q3l-7i-cKj" id="Kxg-rk-HaM"/>
+                        <outlet property="dateTxt" destination="q3l-7i-cKj" id="uct-qF-mVe"/>
+                        <outlet property="descTxt" destination="aG6-mx-Hdv" id="hEK-lq-689"/>
+                        <outlet property="titleTxt" destination="oy6-NF-ksr" id="Zam-WL-VTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXn-ye-mcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -10,53 +10,64 @@ import UIKit
 
 class AddScreen: UIViewController {
     
-    var TextFieldName : UITextField!
-    @IBOutlet weak var tfDeadLine: UITextField!
-    let datePicker = UIDatePicker()
+    @IBOutlet weak var titleTxt: UITextField!
+    @IBOutlet weak var dateTxt: UITextField!
+    @IBOutlet weak var descTxt: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateTxt.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
         // Do any additional setup after loading the view.
     }
-    
+    @IBAction func addListItemAction() {
+     
+        let title = titleTxt.text!
+        let deadline = dateTxt.text ?? ""
+        let description = descTxt.text ?? ""
+        let item: Todo = Todo(title: title, deadline: deadline, description: description)
+        // TodoListViewController에 생성한 전역변수에 append
+        list.append(item)
+    }
+    @objc func doneButtonPressed() {
+       if let  datePicker = self.dateTxt.inputView as? UIDatePicker {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateStyle = .medium
+           self.dateTxt.text = dateFormatter.string(from: datePicker.date)
+       }
+       self.dateTxt.resignFirstResponder()
+    }
+
     @IBAction func btnAdd(_ sender: Any) {
+        addListItemAction()
         self.presentingViewController?.dismiss(animated: true, completion: nil)
         // TODO : Need to store data to add list
-    }
-    @IBAction func DeadLine_onClick(_ sender: Any) {
-        TextFieldName = tfDeadLine
-        CreateDatePicker()
     }
     @IBAction func btnCancel(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    func CreateDatePicker() {
-        //format for picker
-        datePicker.datePickerMode = .date
-        
-        //toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        //bar button item
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        toolbar.setItems([doneButton], animated: false)
-        
-        TextFieldName.inputAccessoryView = toolbar
-        
-        //assigning date picker to text field
-        TextFieldName.inputView = datePicker
-        
-    }
-    @objc func donePressed(_ sender : Any) {
-        //format date
-        print(TextFieldName)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        
-        TextFieldName.text = dateFormatter.string(from: datePicker.date)
-        self.view.endEditing(true)
-    }
-
 }
 
+ extension UITextField {
+
+   func addInputViewDatePicker(target: Any, selector: Selector) {
+
+    let screenWidth = UIScreen.main.bounds.width
+
+    //Add DatePicker as inputView
+    let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))
+    datePicker.datePickerMode = .date
+    self.inputView = datePicker
+
+    //Add Tool Bar as input AccessoryView
+    let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 44))
+    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let cancelBarButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPressed))
+    let doneBarButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
+    toolBar.setItems([cancelBarButton, flexibleSpace, doneBarButton], animated: false)
+
+    self.inputAccessoryView = toolBar
+ }
+
+   @objc func cancelPressed() {
+     self.resignFirstResponder()
+   }
+}

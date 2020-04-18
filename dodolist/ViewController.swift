@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var list = [Todo]()
 class ViewController: UIViewController {
     
     @IBOutlet weak var doo: UIPageControl!
@@ -38,9 +38,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "secondVC")
         
-        self.navigationController?.pushViewController(vcName!, animated: true)
     }
     
     // Todolist 확인을 위한 임시 버튼
