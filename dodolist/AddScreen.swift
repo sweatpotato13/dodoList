@@ -39,10 +39,26 @@ class AddScreen: UIViewController {
     @IBAction func btnAdd(_ sender: Any) {
         addListItemAction()
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+        saveAllData()
         // TODO : Need to store data to add list
     }
     @IBAction func btnCancel(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+        saveAllData()
+    }
+    func saveAllData() {
+        let data = list.map {
+            [
+                "title": $0.title,
+                "deadline": $0.deadline!,
+                "description": $0.description!,
+                "isComplete": $0.isComplete
+
+            ]
+        }
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(data, forKey: "items") // 키, value 설정
+        userDefaults.synchronize()  // 동기화
     }
 }
 
