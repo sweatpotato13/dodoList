@@ -7,29 +7,28 @@
 //
 
 import UIKit
-var list = [Todo]()
 class ViewController: UIViewController {
     
-    var dataset = [
-        ("설정창 수정", "2020-04-18", "3주차 1", "feature", "1"),
-        ("todolist 수정", "2020-04-18", "3주차 2", "feature", "2"),
-        ("탭바 설정", "2020-04-18", "3주차 3", "feature", "3")
-    ]
+//    var dataset = [
+//        ("설정창 수정", "2020-04-18", "3주차 1", "feature", "1"),
+//        ("todolist 수정", "2020-04-18", "3주차 2", "feature", "2"),
+//        ("탭바 설정", "2020-04-18", "3주차 3", "feature", "3")
+//    ]
     
-    lazy var list: [TestTodos] = {
-        var datalist = [TestTodos]()
-        
-        for(title, date, desc, tags, priority) in self.dataset {
-            let todo = TestTodos()
-            todo.title = title
-            todo.date = date
-            todo.description = desc
-            todo.tags = tags
-            todo.priority = priority
-            datalist.append(todo)
-        }
-        return datalist
-    }()
+//    lazy var list: [TestTodos] = {
+//        var datalist = [TestTodos]()
+//
+//        for(title, date, desc, tags, priority) in self.dataset {
+//            let todo = TestTodos()
+//            todo.title = title
+//            todo.date = date
+//            todo.description = desc
+//            todo.tags = tags
+//            todo.priority = priority
+//            datalist.append(todo)
+//        }
+//        return datalist
+//    }()
     
     @IBAction func next(_ sender: Any) {
         

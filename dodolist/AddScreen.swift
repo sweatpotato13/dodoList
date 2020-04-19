@@ -25,7 +25,7 @@ class AddScreen: UIViewController {
         let description = descTxt.text ?? ""
         let item: Todo = Todo(title: title, deadline: deadline, description: description)
         // TodoListViewController에 생성한 전역변수에 append
-        list.append(item)
+        aList.append(item)
     }
     @objc func doneButtonPressed() {
        if let  datePicker = self.dateTxt.inputView as? UIDatePicker {
@@ -47,7 +47,7 @@ class AddScreen: UIViewController {
         saveAllData()
     }
     func saveAllData() {
-        let data = list.map {
+        let data = aList.map {
             [
                 "title": $0.title,
                 "deadline": $0.deadline!,

@@ -8,6 +8,8 @@
 
 import UIKit
 
+var aList = [Todo]()
+
 class TodoViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
@@ -25,9 +27,9 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-       cell.textLabel?.text = list[indexPath.row].title
-       cell.detailTextLabel?.text = list[indexPath.row].deadline
-       if list[indexPath.row].isComplete {
+       cell.textLabel?.text = aList[indexPath.row].title
+       cell.detailTextLabel?.text = aList[indexPath.row].deadline
+       if aList[indexPath.row].isComplete {
          cell.accessoryType = .checkmark
        }else{
          cell.accessoryType = .none
@@ -37,7 +39,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
      
     // n번째 섹션에 몇개의 row가 있는지 반환하는 함수입니다
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return aList.count
     }
     
     @IBAction func back(_ sender: Any) {
@@ -56,7 +58,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
      
         // list 배열에 저장하기
         print(type(of: data))
-        list = data.map {
+        aList = data.map {
             let title = $0["title"] as? String
             let deadline = $0["deadline"] as? String
             let description = $0["description"] as? String
