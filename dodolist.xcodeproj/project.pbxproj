@@ -17,7 +17,6 @@
 		BE9F5F432439DCEA00681439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE9F5F412439DCEA00681439 /* Main.storyboard */; };
 		BE9F5F452439DCEE00681439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE9F5F442439DCEE00681439 /* Assets.xcassets */; };
 		BE9F5F482439DCEE00681439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE9F5F462439DCEE00681439 /* LaunchScreen.storyboard */; };
-		BE9F5F502439E3F200681439 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F5F4F2439E3F200681439 /* secondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		BE9F5F442439DCEE00681439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE9F5F472439DCEE00681439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE9F5F492439DCEE00681439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE9F5F4F2439E3F200681439 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +68,6 @@
 				BE9F5F3B2439DCEA00681439 /* AppDelegate.swift */,
 				BE9F5F3D2439DCEA00681439 /* SceneDelegate.swift */,
 				BE9F5F3F2439DCEA00681439 /* ViewController.swift */,
-				BE9F5F4F2439E3F200681439 /* secondViewController.swift */,
 				BE9F5F412439DCEA00681439 /* Main.storyboard */,
 				10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */,
 				BE9F5F442439DCEE00681439 /* Assets.xcassets */,
@@ -154,7 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				10E9525B243C718D00B7D9E9 /* SettingViewController.swift in Sources */,
-				BE9F5F502439E3F200681439 /* secondViewController.swift in Sources */,
 				BE9F5F402439DCEA00681439 /* ViewController.swift in Sources */,
 				BE176C91244A955C00D4FE88 /* Todo.swift in Sources */,
 				BE9F5F3C2439DCEA00681439 /* AppDelegate.swift in Sources */,
