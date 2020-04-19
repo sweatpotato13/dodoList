@@ -38,13 +38,13 @@ class AddScreen: UIViewController {
 
     @IBAction func btnAdd(_ sender: Any) {
         addListItemAction()
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
         saveAllData()
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
         // TODO : Need to store data to add list
     }
     @IBAction func btnCancel(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
         saveAllData()
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     func saveAllData() {
         let data = aList.map {

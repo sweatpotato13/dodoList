@@ -12,15 +12,17 @@ var aList = [Todo]()
 
 class TodoViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet var todoTableView: UITableView!
+    
     override func viewDidLoad() {
       super.viewDidLoad()
       loadAllData()
       todoTableView.delegate = self
       todoTableView.dataSource = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
     
     // n번째 섹션의 m번째 row를 그리는데 필요한 cell을 반환하는 메소드입니다
@@ -46,8 +48,6 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         self.presentingViewController?.dismiss(animated: true)
     }
     
-    @IBOutlet weak var todoTableView: UITableView!
-
     func loadAllData() {
         let userDefaults = UserDefaults.standard
         guard let data = userDefaults.object(forKey: "items") as? [[String: AnyObject]] else {
@@ -55,7 +55,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         }
      
         print(data.description)
-     
+        print(data.count)
         // list 배열에 저장하기
         print(type(of: data))
         aList = data.map {

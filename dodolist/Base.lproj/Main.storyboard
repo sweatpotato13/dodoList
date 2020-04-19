@@ -65,7 +65,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NiU-aN-nlc" customClass="AddScreen" customModule="dodolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AOj-wn-rXX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCP-Ru-WIh">
@@ -297,11 +297,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Setting" image="plus" catalog="system" style="plain" id="AGT-Ii-J7N">
                             <connections>
-                                <segue destination="NiU-aN-nlc" kind="presentation" id="eaH-Hx-kso"/>
+                                <segue destination="NiU-aN-nlc" kind="show" id="eaH-Hx-kso"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="todoTableView" destination="VXb-cS-hAn" id="SyT-RT-p9R"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksq-M7-8Rn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

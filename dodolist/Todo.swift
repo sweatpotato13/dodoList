@@ -8,7 +8,7 @@
 
 import Foundation
 struct Todo {
-    var title: String = ""
+    var title: String? = ""
     var deadline : String?
     var description: String?
     var isComplete: Bool = false
