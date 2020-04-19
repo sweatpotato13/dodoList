@@ -10,47 +10,46 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var doo: UIPageControl!
-    var array = ["HELLO", "Hello World" , "World Hello"]
+    var dataset = [
+        ("설정창 수정", "2020-04-18", "3주차 1", "feature", "1"),
+        ("todolist 수정", "2020-04-18", "3주차 2", "feature", "2"),
+        ("탭바 설정", "2020-04-18", "3주차 3", "feature", "3")
+    ]
+    
+    lazy var list: [TestTodos] = {
+        var datalist = [TestTodos]()
+        
+        for(title, date, desc, tags, priority) in self.dataset {
+            let todo = TestTodos()
+            todo.title = title
+            todo.date = date
+            todo.description = desc
+            todo.tags = tags
+            todo.priority = priority
+            datalist.append(todo)
+        }
+        return datalist
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        doo.numberOfPages = 3
-        doo.currentPage = 0
-        doo.pageIndicatorTintColor = UIColor.gray
-        doo.currentPageIndicatorTintColor = UIColor.red
-    }
 
-    
-    @IBAction func pageControl(_ sender: Any) {
-        foo.text = array[doo.currentPage]
-    }	
-    
-    @IBOutlet weak var foo: UILabel!
-    @IBAction func boo(_ sender: Any) {
-        if(foo.text == "Hello world"){  
-            foo.text = "boo!"
-            
-        }
-        else{
-            foo.text = "Hello world"
-        }
     }
     
-    @IBAction func next(_ sender: Any) {
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "secondVC")
-        
-        self.navigationController?.pushViewController(vcName!, animated: true)
-    }
-    
-    // Todolist 확인을 위한 임시 버튼
-    @IBAction func goTodos(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        let uvc = storyboard.instantiateViewController(withIdentifier: "TodoVC")
-        
-        self.present(uvc, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.list.count
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let row = self.list[indexPath.row]
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "todo")!
+//        cell.textLabel?.text = row.title
+//        return cell
+//    }
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        NSLog("선택된 행은 \(indexPath.row) 번째 행입니다.")
+//    }
 }
 
