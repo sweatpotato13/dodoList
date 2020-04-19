@@ -33,19 +33,16 @@ class AddScreen: UIViewController {
            dateFormatter.dateStyle = .medium
            self.dateTxt.text = dateFormatter.string(from: datePicker.date)
        }
-       self.dateTxt.resignFirstResponder()
+       //self.dateTxt.resignFirstResponder()
     }
-
+    
     @IBAction func btnAdd(_ sender: Any) {
         addListItemAction()
         saveAllData()
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-        // TODO : Need to store data to add list
+        //self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func btnCancel(_ sender: Any) {
-        saveAllData()
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
+    
     func saveAllData() {
         let data = aList.map {
             [
@@ -84,6 +81,6 @@ class AddScreen: UIViewController {
  }
 
    @objc func cancelPressed() {
-     self.resignFirstResponder()
+     //self.resignFirstResponder()
    }
 }

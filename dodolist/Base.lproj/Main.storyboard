@@ -15,22 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCP-Ru-WIh">
-                                <rect key="frame" x="336" y="20" width="58" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="btnAdd:" destination="NiU-aN-nlc" eventType="touchUpInside" id="GEQ-iD-Zrl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOx-XZ-bnA">
-                                <rect key="frame" x="20" y="20" width="58" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="btnCancel:" destination="NiU-aN-nlc" eventType="touchUpInside" id="2eg-YU-gkh"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oy6-NF-ksr">
                                 <rect key="frame" x="20" y="107" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -56,7 +40,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="paU-2u-zaS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xia-Kh-bmz"/>
+                    <navigationItem key="navigationItem" id="Xia-Kh-bmz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ufd-CE-EWO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCP-Ru-WIh">
+                                <rect key="frame" x="336" y="0.0" width="58" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="btnAdd:" destination="NiU-aN-nlc" eventType="touchUpInside" id="GEQ-iD-Zrl"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="btnAdd:" destination="NiU-aN-nlc" id="jQ1-do-F5d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateTxt" destination="q3l-7i-cKj" id="uct-qF-mVe"/>
                         <outlet property="descTxt" destination="aG6-mx-Hdv" id="hEK-lq-689"/>
@@ -252,7 +250,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksq-M7-8Rn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="1296"/>
+            <point key="canvasLocation" x="3131.884057971015" y="1295.7589285714284"/>
         </scene>
         <!--Finished-->
         <scene sceneID="VdS-GX-wHN">
