@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var list = [Todo]()
 class ViewController: UIViewController {
     
     var dataset = [
@@ -31,8 +31,8 @@ class ViewController: UIViewController {
         return datalist
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func next(_ sender: Any) {
+        
 
     }
     
