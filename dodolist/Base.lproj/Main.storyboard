@@ -42,7 +42,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Xia-Kh-bmz">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ufd-CE-EWO">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCP-Ru-WIh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCP-Ru-WIh">
                                 <rect key="frame" x="336" y="0.0" width="58" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
@@ -128,6 +128,9 @@
                                     <segment title="Medium"/>
                                     <segment title="Small"/>
                                 </segments>
+                                <connections>
+                                    <action selector="setFontSize:" destination="C8L-be-38l" eventType="valueChanged" id="Rya-gI-IN4"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcR-tm-cnr">
                                 <rect key="frame" x="104" y="439" width="37" height="21"/>
@@ -145,10 +148,16 @@
                         <viewLayoutGuide key="safeArea" id="lmT-g2-C4o"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="O8Y-WA-cyG"/>
+                    <connections>
+                        <outlet property="alarm" destination="Mt7-GV-NFl" id="Cms-pW-4Mc"/>
+                        <outlet property="darkMode" destination="sek-9i-TEh" id="aQL-9O-Tai"/>
+                        <outlet property="fontSize" destination="7PL-tU-4vW" id="PbB-M8-Ftb"/>
+                        <outlet property="lock" destination="d8W-VU-jUW" id="8kF-T0-CrF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9A-HG-nz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4181" y="975"/>
+            <point key="canvasLocation" x="4179.7101449275369" y="975"/>
         </scene>
         <!--Finished-->
         <scene sceneID="lBX-Js-mh5">
