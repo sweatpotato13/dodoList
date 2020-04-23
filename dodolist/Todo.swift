@@ -12,11 +12,13 @@ struct Todo {
     var deadline : String?
     var description: String?
     var isComplete: Bool = false
+    var priority: String = "mid"
  
-    init(title: String, deadline: String?, description: String?, isComplete: Bool = false) {
+    init(title: String, deadline: String?, description: String?, isComplete: Bool = false, priority: String) {
         self.title = title
         self.deadline = deadline
         self.description = description
         self.isComplete = isComplete
+        self.priority = priority
     }
 }

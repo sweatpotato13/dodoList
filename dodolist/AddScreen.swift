@@ -13,6 +13,7 @@ class AddScreen: UIViewController {
     @IBOutlet weak var titleTxt: UITextField!
     @IBOutlet weak var dateTxt: UITextField!
     @IBOutlet weak var descTxt: UITextField!
+    @IBOutlet weak var scPriority: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         dateTxt.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
@@ -23,7 +24,14 @@ class AddScreen: UIViewController {
         let title = titleTxt.text!
         let deadline = dateTxt.text ?? ""
         let description = descTxt.text ?? ""
-        let item: Todo = Todo(title: title, deadline: deadline, description: description)
+        var priority: String!
+        switch scPriority.selectedSegmentIndex {
+            case 0: priority = "high"
+            case 1: priority = "mid"
+            case 2: priority = "low"
+            default: return
+        }
+        let item: Todo = Todo(title: title, deadline: deadline, description: description, priority: priority)
         // TodoListViewController에 생성한 전역변수에 append
         aList.append(item)
     }
@@ -49,8 +57,8 @@ class AddScreen: UIViewController {
                 "title": $0.title,
                 "deadline": $0.deadline!,
                 "description": $0.description!,
-                "isComplete": $0.isComplete
-
+                "isComplete": $0.isComplete,
+                "priority": $0.priority
             ]
         }
         let userDefaults = UserDefaults.standard

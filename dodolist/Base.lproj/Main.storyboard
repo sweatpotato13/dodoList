@@ -18,31 +18,47 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oy6-NF-ksr">
                                 <rect key="frame" x="20" y="107" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    DeadLine" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3l-7i-cKj">
                                 <rect key="frame" x="20" y="149" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="btnAdd:" destination="NiU-aN-nlc" eventType="editingDidEnd" id="44V-SJ-31s"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aG6-mx-Hdv">
-                                <rect key="frame" x="20" y="191" width="374" height="196"/>
+                                <rect key="frame" x="20" y="378" width="374" height="196"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QfQ-9v-5AY">
+                                <rect key="frame" x="119" y="191" width="275" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="높음"/>
+                                    <segment title="중간"/>
+                                    <segment title="낮음"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    우선순위    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8c-L8-E9y">
+                                <rect key="frame" x="20" y="191" width="95" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="paU-2u-zaS"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xia-Kh-bmz">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ufd-CE-EWO">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCP-Ru-WIh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCP-Ru-WIh">
                                 <rect key="frame" x="336" y="0.0" width="58" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
@@ -58,12 +74,13 @@
                     <connections>
                         <outlet property="dateTxt" destination="q3l-7i-cKj" id="uct-qF-mVe"/>
                         <outlet property="descTxt" destination="aG6-mx-Hdv" id="hEK-lq-689"/>
+                        <outlet property="scPriority" destination="QfQ-9v-5AY" id="H5o-Kl-cfM"/>
                         <outlet property="titleTxt" destination="oy6-NF-ksr" id="Zam-WL-VTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXn-ye-mcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4181" y="1666"/>
+            <point key="canvasLocation" x="4179.7101449275369" y="1665.4017857142856"/>
         </scene>
         <!--Settings-->
         <scene sceneID="AWC-7s-rZJ">

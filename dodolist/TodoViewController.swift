@@ -64,8 +64,9 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
             let deadline = $0["deadline"] as? String
             let description = $0["description"] as? String
             let isComplete = $0["isComplete"] as? Bool
+            let priority = $0["priority"] as? String
      
-            return Todo(title: title!, deadline: deadline!, description:description!, isComplete: isComplete!)
+            return Todo(title: title!, deadline: deadline!, description:description!, isComplete: isComplete!, priority: priority!)
         }
     }
 }
