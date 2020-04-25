@@ -14,16 +14,16 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet var todoTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        todoTableView.reloadData()
+    }
+
     override func viewDidLoad() {
       super.viewDidLoad()
       loadAllData()
       todoTableView.delegate = self
       todoTableView.dataSource = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        todoTableView.reloadData()
     }
     
     // n번째 섹션의 m번째 row를 그리는데 필요한 cell을 반환하는 메소드입니다

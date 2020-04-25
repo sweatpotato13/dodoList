@@ -1,56 +1,43 @@
 //
-//  ViewController.swift
+//  TestScreen.swift
 //  dodolist
 //
-//  Created by JCR on 2020/04/05.
+//  Created by JCR on 2020/04/25.
 //  Copyright © 2020 dodo. All rights reserved.
 //
 
 import UIKit
 
-class AddScreen: UIViewController {
-    
+class AddScreen: UITableViewController {
+    private var dpShowDateVisible = false
+    @IBOutlet weak var lblShowData: UILabel!
+    @IBOutlet weak var dpShowDate: UIDatePicker!
+    @IBOutlet weak var lblPriority: UILabel!
     @IBOutlet weak var titleTxt: UITextField!
-    @IBOutlet weak var dateTxt: UITextField!
     @IBOutlet weak var descTxt: UITextField!
-    @IBOutlet weak var scPriority: UISegmentedControl!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        dateTxt.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
-        // Do any additional setup after loading the view.
+    @IBAction func dpShowDateAction(_ sender: UIDatePicker) {
+        
     }
-    @IBAction func addListItemAction() {
-     
-        let title = titleTxt.text!
-        let deadline = dateTxt.text ?? ""
-        let description = descTxt.text ?? ""
-        var priority: String!
-        switch scPriority.selectedSegmentIndex {
-            case 0: priority = "high"
-            case 1: priority = "mid"
-            case 2: priority = "low"
-            default: return
-        }
-        let item: Todo = Todo(title: title, deadline: deadline, description: description, priority: priority)
-        // TodoListViewController에 생성한 전역변수에 append
-        aList.append(item)
-    }
-    @objc func doneButtonPressed() {
-       if let  datePicker = self.dateTxt.inputView as? UIDatePicker {
-           let dateFormatter = DateFormatter()
-           dateFormatter.dateStyle = .medium
-           self.dateTxt.text = dateFormatter.string(from: datePicker.date)
-       }
-       //self.dateTxt.resignFirstResponder()
+    @IBAction func btnCancel(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func btnAdd(_ sender: Any) {
         addListItemAction()
         saveAllData()
-        //self.presentingViewController?.dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+
     }
-    
+    @IBAction func addListItemAction() {
+     
+        let title = titleTxt.text!
+        let deadline = lblShowData.text ?? ""
+        let description = descTxt.text ?? ""
+        let priority = "low"
+        let item: Todo = Todo(title: title, deadline: deadline, description: description, priority: priority)
+        // TodoListViewController에 생성한 전역변수에 append
+        aList.append(item)
+    }
     func saveAllData() {
         let data = aList.map {
             [
@@ -65,30 +52,59 @@ class AddScreen: UIViewController {
         userDefaults.set(data, forKey: "items") // 키, value 설정
         userDefaults.synchronize()  // 동기화
     }
-}
 
- extension UITextField {
+    private func toggleShowDateDatepicker () {
+         dpShowDateVisible = !dpShowDateVisible
 
-   func addInputViewDatePicker(target: Any, selector: Selector) {
+         tableView.beginUpdates()
+         tableView.endUpdates()
+    }
+    private func dpShowDateChanged () {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        self.lblShowData.text = dateFormatter.string(from: dpShowDate.date)
 
-    let screenWidth = UIScreen.main.bounds.width
+    }
+    
+    @IBAction func dpShowDataAction(_ sender: UIDatePicker) {
+        dpShowDateChanged()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+         if indexPath.row == 0 {
+              toggleShowDateDatepicker()
+         }
 
-    //Add DatePicker as inputView
-    let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))
-    datePicker.datePickerMode = .date
-    self.inputView = datePicker
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
+    
+     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+         if !dpShowDateVisible && indexPath.row == 1 {
+              return 0
+         } else {
+            return super.tableView.rowHeight
+         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor.lightGray
+    }
 
-    //Add Tool Bar as input AccessoryView
-    let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 44))
-    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let cancelBarButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPressed))
-    let doneBarButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
-    toolBar.setItems([cancelBarButton, flexibleSpace, doneBarButton], animated: false)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
-    self.inputAccessoryView = toolBar
- }
+    // MARK: - Table view data source
 
-   @objc func cancelPressed() {
-     //self.resignFirstResponder()
-   }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 7
+    }
+
 }
