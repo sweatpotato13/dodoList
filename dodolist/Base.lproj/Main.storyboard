@@ -73,24 +73,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRK-ZJ-4E1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Settings" id="Nbv-tw-zl3">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="hUb-bQ-S0k">
-                                            <connections>
-                                                <action selector="cancel:" destination="C8L-be-38l" id="NOZ-RC-a6v"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="NzM-NZ-2hW">
-                                            <connections>
-                                                <action selector="done:" destination="C8L-be-38l" id="Kqc-9y-adw"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k86-qo-Jkv">
                                 <rect key="frame" x="44" y="167" width="100" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -147,7 +129,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lmT-g2-C4o"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="O8Y-WA-cyG"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="O8Y-WA-cyG">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="plain" id="1k8-gh-F0r">
+                            <connections>
+                                <action selector="done:" destination="C8L-be-38l" id="eTp-rR-K6z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="alarm" destination="Mt7-GV-NFl" id="Cms-pW-4Mc"/>
                         <outlet property="darkMode" destination="sek-9i-TEh" id="aQL-9O-Tai"/>
@@ -211,7 +201,7 @@
         <!--All List-->
         <scene sceneID="8op-4S-5P0">
             <objects>
-                <tableViewController id="pBq-yU-3S3" customClass="TodoViewController" customModule="dodolist" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Main" id="pBq-yU-3S3" customClass="TodoViewController" customModule="dodolist" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VXb-cS-hAn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,7 +253,8 @@
                     <navigationItem key="navigationItem" title="All List" id="ke9-yb-Qt6">
                         <barButtonItem key="leftBarButtonItem" title="Setting" image="gear" catalog="system" style="plain" id="IsQ-BL-W58">
                             <connections>
-                                <action selector="setting:" destination="pBq-yU-3S3" id="Ejy-xM-boF"/>
+                                <action selector="settingSegue:" destination="pBq-yU-3S3" id="8Hy-IT-D3k"/>
+                                <segue destination="C8L-be-38l" kind="show" identifier="SettingSegue" id="I7Q-pB-2qP"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" style="plain" id="AGT-Ii-J7N">

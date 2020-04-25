@@ -24,29 +24,90 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         todoTableView.delegate = self
         todoTableView.dataSource = self
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+
+    // 여기서 호출하면 값을 불러올 수 있다!
+    override func viewWillAppear(_ animated: Bool) {
+        print("글자 크기 : \(String(describing: ad?.fontSize))")
+        print("알람 : \(String(describing: ad?.alarm))")
+        print("다크 모드 : \(String(describing: ad?.darkMode))")
+        print("잠금 : \(String(describing: ad?.lock))")
         todoTableView.reloadData()
     }
     
-    // 네비게이션 바를 사용하기 때문에 세그웨이 방식으로 변경!
-    @IBAction func setting(_ sender: Any) {
-        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC") else{
-            return
-        }
-        self.present(uvc, animated: true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        todoTableView.reloadData()
+    }
+    
+    @IBAction func settingSegue(_ sender: Any) {
+        self.performSegue(withIdentifier: "SettingSegue", sender: self)
     }
     
     // n번째 섹션의 m번째 row를 그리는데 필요한 cell을 반환하는 메소드입니다
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // as! TableViewCell 구문을 통해 커스텀 테이블 셀의 값을 가져와서  데이터를 넣어줄 수 있다.
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let titleLabel = cell.titleLabel
+        let dateLabel = cell.dateLabel
+        let tagsLabel = cell.tagsLabel
         
-        cell.titleLabel?.text = aList[indexPath.row].title
-        cell.dateLabel?.text = aList[indexPath.row].deadline
+        titleLabel?.text = aList[indexPath.row].title
+        dateLabel?.text = aList[indexPath.row].deadline
+        
+        // setting 반영
+        // 폰트 사이즈 결정
+        var cellFontSize = UIFont.systemFont(ofSize: 17)
+        // 텍스트 설정
+        let titleText = NSMutableAttributedString(string: (titleLabel?.text!)!)
+        let dateText = NSMutableAttributedString(string: (dateLabel?.text!)!)
+        let tagsText = NSMutableAttributedString(string: (tagsLabel?.text!)!)
+        
+        if(ad?.fontSize == "Large") {
+            cellFontSize = UIFont.systemFont(ofSize: 25)
+            titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
+            dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
+            tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
+            titleLabel?.attributedText = titleText
+            dateLabel?.attributedText = dateText
+            tagsLabel?.attributedText = tagsText
+        } else if(ad?.fontSize == "Medium") {
+            cellFontSize = UIFont.systemFont(ofSize: 17)
+            titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
+            dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
+            tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
+            titleLabel?.attributedText = titleText
+            dateLabel?.attributedText = dateText
+            tagsLabel?.attributedText = tagsText
+        } else {
+            cellFontSize = UIFont.systemFont(ofSize: 9)
+            titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
+            dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
+            tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
+            titleLabel?.attributedText = titleText
+            dateLabel?.attributedText = dateText
+            tagsLabel?.attributedText = tagsText
+        }
+        
 //        cell.textLabel?.text = aList[indexPath.row].title
 //        cell.detailTextLabel?.text = aList[indexPath.row].deadline
+        
+        //        var fontSizeSetted = UIFont.systemFont(ofSize: 17)
+        //        var fontSizeText = NSMutableAttributedString(string: fontSizeLabel.text!)
+        //        if(ad?.fontSize == "Large") {
+        //            fontSizeSetted = UIFont.systemFont(ofSize: 25)
+        //            fontSizeText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSizeSetted, range: NSMakeRange(0, 9))
+        //            fontSizeLabel.attributedText = fontSizeText
+        //        } else if(ad?.fontSize == "Medium") {
+        //            fontSizeSetted = UIFont.systemFont(ofSize: 17)
+        //            fontSizeText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSizeSetted, range: NSMakeRange(0, 9))
+        //            fontSizeLabel.attributedText = fontSizeText
+        //        } else {
+        //            fontSizeSetted = UIFont.systemFont(ofSize:9)
+        //            fontSizeText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSizeSetted, range: NSMakeRange(0, 9))
+        //            fontSizeLabel.attributedText = fontSizeText
+        //        }
+        
+        
         if aList[indexPath.row].isComplete {
          cell.accessoryType = .checkmark
         } else{
