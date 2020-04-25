@@ -11,7 +11,7 @@ private let PriorityValues: [String] = ["High","Mid","Low"]
 private let TagValues: [String] = ["None","Home","School","Work"]
 
 class AddScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    
+
     @IBOutlet weak var lblShowData: UILabel!
     @IBOutlet weak var dpShowDate: UIDatePicker!
     @IBOutlet weak var lblPriority: UILabel!
@@ -25,14 +25,13 @@ class AddScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDele
         
     }
     @IBAction func btnCancel(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnAdd(_ sender: Any) {
         addListItemAction()
         saveAllData()
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func addListItemAction() {
      
@@ -124,11 +123,11 @@ class AddScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDele
     // MARK: - Table view data source
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 9
+        return 8
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 9
+        return 8
     }
 }

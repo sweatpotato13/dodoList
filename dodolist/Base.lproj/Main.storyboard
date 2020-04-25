@@ -181,7 +181,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Setting" image="plus" catalog="system" style="plain" id="O52-le-gXt">
                             <connections>
-                                <segue destination="bE0-zO-CjU" kind="presentation" id="YF3-Pb-E4s"/>
+                                <segue destination="bE0-zO-CjU" kind="show" id="YF3-Pb-E4s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -232,47 +232,19 @@
             </objects>
             <point key="canvasLocation" x="2164" y="1296"/>
         </scene>
-        <!--Add Screen-->
+        <!--새로운 데이터 추가-->
         <scene sceneID="35k-LC-CVR">
             <objects>
                 <tableViewController id="bE0-zO-CjU" customClass="AddScreen" customModule="dodolist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sdl-ty-OSa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="5Pe-XH-NNF">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tpf-Rv-nWZ">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tpf-Rv-nWZ" id="Ltk-Yn-huE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aub-CE-GKD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <items>
-                                                        <navigationItem title="새로운 데이터 추가" id="MaI-77-iix">
-                                                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5F5-Ov-Nab">
-                                                                <connections>
-                                                                    <action selector="btnCancel:" destination="bE0-zO-CjU" id="fuQ-uM-b6k"/>
-                                                                </connections>
-                                                            </barButtonItem>
-                                                            <barButtonItem key="rightBarButtonItem" systemItem="done" id="uAX-Bh-9Nb">
-                                                                <connections>
-                                                                    <action selector="btnAdd:" destination="bE0-zO-CjU" id="oE3-QG-RGM"/>
-                                                                </connections>
-                                                            </barButtonItem>
-                                                        </navigationItem>
-                                                    </items>
-                                                </navigationBar>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cT7-RF-gMT">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cT7-RF-gMT" id="E8e-pY-DWr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -288,7 +260,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qYQ-ul-fl3">
-                                        <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qYQ-ul-fl3" id="ivk-i7-97w">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -359,7 +331,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="218" id="eXL-vq-QVP">
-                                        <rect key="frame" x="0.0" y="160" width="414" height="218"/>
+                                        <rect key="frame" x="0.0" y="116" width="414" height="218"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eXL-vq-QVP" id="FKg-le-dOh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="218"/>
@@ -387,7 +359,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Priority" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Ovm-pn-kxu">
-                                        <rect key="frame" x="0.0" y="378" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ovm-pn-kxu" id="OQ6-Ig-y7Z">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -445,7 +417,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="CEC-nk-FW8">
-                                        <rect key="frame" x="0.0" y="422" width="414" height="108"/>
+                                        <rect key="frame" x="0.0" y="378" width="414" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEC-nk-FW8" id="K41-OU-W06">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
@@ -459,7 +431,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tag" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="sif-pg-PfU">
-                                        <rect key="frame" x="0.0" y="530" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="486" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sif-pg-PfU" id="Rdv-Ds-DYE">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
@@ -517,7 +489,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="Svb-g6-AsK">
-                                        <rect key="frame" x="0.0" y="574" width="414" height="96"/>
+                                        <rect key="frame" x="0.0" y="530" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Svb-g6-AsK" id="CUn-rj-hif">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
@@ -531,7 +503,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W5y-ht-TOf">
-                                        <rect key="frame" x="0.0" y="670" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="626" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W5y-ht-TOf" id="YrV-zx-k7J">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -554,6 +526,13 @@
                             <outlet property="delegate" destination="bE0-zO-CjU" id="CU7-nW-1uF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="새로운 데이터 추가" id="BlV-Yz-85A">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uAX-Bh-9Nb">
+                            <connections>
+                                <action selector="btnAdd:" destination="bE0-zO-CjU" id="oE3-QG-RGM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="descTxt" destination="jgx-zy-HOZ" id="Vok-zi-Ni5"/>
                         <outlet property="dpShowDate" destination="h4j-1g-pa0" id="Q9p-k0-99s"/>
