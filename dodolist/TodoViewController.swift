@@ -12,10 +12,10 @@ var aList = [Todo]()
 
 class TodoViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // 설정값을 가져오기 위한 AppDelegate 객체 선언
+    // TODO :: 뷰가 불려질 때로 위치 이동 필요
     let ad = UIApplication.shared.delegate as? AppDelegate
-    
-    @IBOutlet weak var testLabel: UILabel!
-    
+
     @IBOutlet var todoTableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,22 +23,16 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         loadAllData()
         todoTableView.delegate = self
         todoTableView.dataSource = self
-        print("viewDidLoad \(ad?.fontSize) \(ad?.darkMode)")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        testLabel.text = ad?.fontSize
-        print("viewWillLoad \(ad?.fontSize) \(ad?.darkMode)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         todoTableView.reloadData()
-        print("viewDidlLoad \(ad?.fontSize) \(ad?.darkMode)")
     }
     
+    // 네비게이션 바를 사용하기 때문에 세그웨이 방식으로 변경!
     @IBAction func setting(_ sender: Any) {
-        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC")       else{
+        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC") else{
             return
         }
         self.present(uvc, animated: true)
@@ -46,25 +40,24 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     // n번째 섹션의 m번째 row를 그리는데 필요한 cell을 반환하는 메소드입니다
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        // as! TableViewCell 구문을 통해 커스텀 테이블 셀의 값을 가져와서  데이터를 넣어줄 수 있다.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
-       cell.textLabel?.text = aList[indexPath.row].title
-       cell.detailTextLabel?.text = aList[indexPath.row].deadline
-       if aList[indexPath.row].isComplete {
+        cell.titleLabel?.text = aList[indexPath.row].title
+        cell.dateLabel?.text = aList[indexPath.row].deadline
+//        cell.textLabel?.text = aList[indexPath.row].title
+//        cell.detailTextLabel?.text = aList[indexPath.row].deadline
+        if aList[indexPath.row].isComplete {
          cell.accessoryType = .checkmark
-       }else{
+        } else{
          cell.accessoryType = .none
-       }
+        }
         return cell
     }
      
     // n번째 섹션에 몇개의 row가 있는지 반환하는 함수입니다
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return aList.count
-    }
-    
-    @IBAction func back(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true)
     }
     
     func loadAllData() {
