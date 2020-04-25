@@ -12,18 +12,36 @@ var aList = [Todo]()
 
 class TodoViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let ad = UIApplication.shared.delegate as? AppDelegate
+    
+    @IBOutlet weak var testLabel: UILabel!
+    
     @IBOutlet var todoTableView: UITableView!
     
     override func viewDidLoad() {
-      super.viewDidLoad()
-      loadAllData()
-      todoTableView.delegate = self
-      todoTableView.dataSource = self
+        super.viewDidLoad()
+        loadAllData()
+        todoTableView.delegate = self
+        todoTableView.dataSource = self
+        print("viewDidLoad \(ad?.fontSize) \(ad?.darkMode)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        testLabel.text = ad?.fontSize
+        print("viewWillLoad \(ad?.fontSize) \(ad?.darkMode)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         todoTableView.reloadData()
+        print("viewDidlLoad \(ad?.fontSize) \(ad?.darkMode)")
+    }
+    
+    @IBAction func setting(_ sender: Any) {
+        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC")       else{
+            return
+        }
+        self.present(uvc, animated: true)
     }
     
     // n번째 섹션의 m번째 row를 그리는데 필요한 cell을 반환하는 메소드입니다
