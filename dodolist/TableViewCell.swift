@@ -15,5 +15,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     
-    
+    @IBOutlet weak var finishedTitleLabel: UILabel!
+    @IBOutlet weak var finishedDateLabel: UILabel!
+    @IBOutlet weak var finishedTagsLabel: UILabel!
 }

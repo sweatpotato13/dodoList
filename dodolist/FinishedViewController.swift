@@ -24,9 +24,13 @@ class FinishedViewController : UITableViewController {
     }
     // n번째 섹션의 m번째 row를 그리는데 필요한 cell을 반환하는 메소드입니다
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = Completed_filtered[indexPath.row].title
-        cell.detailTextLabel?.text = Completed_filtered[indexPath.row].deadline
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        cell.finishedTitleLabel?.text = Completed_filtered[indexPath.row].title
+        cell.finishedDateLabel?.text = Completed_filtered[indexPath.row].deadline
+        cell.finishedTagsLabel?.text = Completed_filtered[indexPath.row].tag
+        
+//        cell.textLabel?.text = Completed_filtered[indexPath.row].title
+//        cell.detailTextLabel?.text = Completed_filtered[indexPath.row].deadline
         if Completed_filtered[indexPath.row].isComplete {
             cell.accessoryType = .checkmark
         }else{
