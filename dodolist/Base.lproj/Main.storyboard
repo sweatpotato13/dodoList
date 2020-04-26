@@ -140,10 +140,13 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="alarm" destination="Mt7-GV-NFl" id="Cms-pW-4Mc"/>
+                        <outlet property="alarmLabel" destination="njf-Bu-gYb" id="Q1i-s2-SW6"/>
                         <outlet property="darkMode" destination="sek-9i-TEh" id="aQL-9O-Tai"/>
+                        <outlet property="darkModeLabel" destination="nH9-AH-Kej" id="1Q3-6X-t0N"/>
                         <outlet property="fontSize" destination="7PL-tU-4vW" id="PbB-M8-Ftb"/>
                         <outlet property="fontSizeLabel" destination="k86-qo-Jkv" id="sc9-b6-4bN"/>
                         <outlet property="lock" destination="d8W-VU-jUW" id="8kF-T0-CrF"/>
+                        <outlet property="lockAlarm" destination="OcR-tm-cnr" id="cHU-L5-yeY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9A-HG-nz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

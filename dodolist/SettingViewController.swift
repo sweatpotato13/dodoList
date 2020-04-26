@@ -20,10 +20,17 @@ class SettingViewController : UIViewController {
     // ===================================================
     
     @IBOutlet weak var fontSizeLabel: UILabel!
+    @IBOutlet weak var alarmLabel: UILabel!
+    @IBOutlet weak var darkModeLabel: UILabel!
+    @IBOutlet weak var lockAlarm: UILabel!
     
     // TODO :: 초기값을 설정된 값으로 전환하기
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 초기값 설정 구문
+        alarm.setOn((ad?.alarm!)!, animated: false)
+        darkMode.setOn((ad?.darkMode)!, animated: false)
+        lock.setOn((ad?.lock)!, animated: false)
         // segmented control 액션 달아주기
         fontSize.addTarget(self, action: #selector(segconChanged(segcon:)), for: UIControl.Event.valueChanged)
     }
