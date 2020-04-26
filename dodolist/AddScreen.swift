@@ -9,6 +9,21 @@
 import UIKit
 private let PriorityValues: [String] = ["High","Mid","Low"]
 private let TagValues: [String] = ["None","Home","School","Work"]
+func saveAllData() {
+    let data = aList.map {
+        [
+            "title": $0.title,
+            "deadline": $0.deadline!,
+            "description": $0.description!,
+            "isComplete": $0.isComplete,
+            "priority": $0.priority,
+            "tag":$0.tag
+        ]
+    }
+    let userDefaults = UserDefaults.standard
+    userDefaults.set(data, forKey: "items") // 키, value 설정
+    userDefaults.synchronize()  // 동기화
+}
 
 class AddScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
@@ -43,21 +58,6 @@ class AddScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDele
         let item: Todo = Todo(title: title, deadline: deadline, description: description, priority: priority, tag: tag)
         // TodoListViewController에 생성한 전역변수에 append
         aList.append(item)
-    }
-    func saveAllData() {
-        let data = aList.map {
-            [
-                "title": $0.title,
-                "deadline": $0.deadline!,
-                "description": $0.description!,
-                "isComplete": $0.isComplete,
-                "priority": $0.priority,
-                "tag":$0.tag
-            ]
-        }
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(data, forKey: "items") // 키, value 설정
-        userDefaults.synchronize()  // 동기화
     }
 
     private func dpShowDateChanged () {
