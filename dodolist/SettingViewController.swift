@@ -24,10 +24,15 @@ class SettingViewController : UIViewController {
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBOutlet weak var lockAlarm: UILabel!
     
-    // TODO :: 초기값을 설정된 값으로 전환하기
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 초기값 설정 구문
+        if((ad?.fontSize)! == "Large") {
+            fontSize.selectedSegmentIndex = 0
+        } else if((ad?.fontSize)! == "Medium") {
+            fontSize.selectedSegmentIndex = 1
+        } else if((ad?.fontSize)! == "Small") {
+            fontSize.selectedSegmentIndex = 2
+        }
         alarm.setOn((ad?.alarm!)!, animated: false)
         darkMode.setOn((ad?.darkMode)!, animated: false)
         lock.setOn((ad?.lock)!, animated: false)
@@ -40,7 +45,6 @@ class SettingViewController : UIViewController {
         let alert = UIAlertController(title: "확인", message: "설정을 저장하시겠습니까?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let ok = UIAlertAction(title: "확인", style: .default) { (_) in
-        // TODO :: 저장 내용을 변경해서 반영하는 코드 추가
             self.navigationController?.popViewController(animated: true)
             // AppDelegate에 설정값 저장
             self.ad?.alarm = self.alarm.isOn
@@ -54,7 +58,6 @@ class SettingViewController : UIViewController {
     }
     
     // 글꼴 크기 선택 옵션 발생
-    // ISSUE :: 초기값이 설정이 안된다. 한 번 바꿔준 후 설정해야 한다.
     @objc func segconChanged(segcon: UISegmentedControl) {
         switch segcon.selectedSegmentIndex {
             case 0:
