@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0476404024545AF700C234F8 /* AddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476403F24545AF700C234F8 /* AddScreen.swift */; };
 		047640482455224800C234F8 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047640472455224800C234F8 /* FinishedViewController.swift */; };
+		103A2C25245434FE002CB3EF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A2C24245434FE002CB3EF /* TableViewCell.swift */; };
+		10B9E7CD244D5CB100458EF3 /* setting.json in Resources */ = {isa = PBXBuildFile; fileRef = 10B9E7CC244D5CB000458EF3 /* setting.json */; };
 		10E9525B243C718D00B7D9E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525A243C718C00B7D9E9 /* SettingViewController.swift */; };
 		10E9525D243C7D9300B7D9E9 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */; };
 		BE176C91244A955C00D4FE88 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE176C90244A955C00D4FE88 /* Todo.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		0476403F24545AF700C234F8 /* AddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreen.swift; sourceTree = "<group>"; };
 		047640472455224800C234F8 /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		103A2C24245434FE002CB3EF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		10B9E7CC244D5CB000458EF3 /* setting.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = setting.json; sourceTree = "<group>"; };
 		10E9525A243C718C00B7D9E9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		BE176C90244A955C00D4FE88 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				10E9525A243C718C00B7D9E9 /* SettingViewController.swift */,
 				BE176C90244A955C00D4FE88 /* Todo.swift */,
 				0476403F24545AF700C234F8 /* AddScreen.swift */,
+				103A2C24245434FE002CB3EF /* TableViewCell.swift */,
+				10B9E7CC244D5CB000458EF3 /* setting.json */,
 			);
 			path = dodolist;
 			sourceTree = "<group>";
@@ -142,6 +148,7 @@
 			files = (
 				BE9F5F482439DCEE00681439 /* LaunchScreen.storyboard in Resources */,
 				BE9F5F452439DCEE00681439 /* Assets.xcassets in Resources */,
+				10B9E7CD244D5CB100458EF3 /* setting.json in Resources */,
 				BE9F5F432439DCEA00681439 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +162,7 @@
 			files = (
 				047640482455224800C234F8 /* FinishedViewController.swift in Sources */,
 				10E9525B243C718D00B7D9E9 /* SettingViewController.swift in Sources */,
+				103A2C25245434FE002CB3EF /* TableViewCell.swift in Sources */,
 				BE9F5F402439DCEA00681439 /* ViewController.swift in Sources */,
 				BE176C91244A955C00D4FE88 /* Todo.swift in Sources */,
 				0476404024545AF700C234F8 /* AddScreen.swift in Sources */,

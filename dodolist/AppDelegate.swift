@@ -11,7 +11,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    /* 앱 설정 변수 */
+    var window: UIWindow?
+    
+    var fontSize: String? = "Medium"
+    var darkMode: Bool? = false
+    var alarm: Bool? = false
+    var lock: Bool? = false
+    /* ================== */
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
