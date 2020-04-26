@@ -154,24 +154,4 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func back(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
-
-    func loadAllData() {
-        let userDefaults = UserDefaults.standard
-        guard let data = userDefaults.object(forKey: "items") as? [[String: AnyObject]] else {
-                return
-        }
-     
-        print(data.description)
-        print(data.count)
-        // list 배열에 저장하기
-        print(type(of: data))
-        aList = data.map {
-            let title = $0["title"] as? String
-            let deadline = $0["deadline"] as? String
-            let description = $0["description"] as? String
-            let isComplete = $0["isComplete"] as? Bool
-     
-            return Todo(title: title!, deadline: deadline!, description:description!, isComplete: isComplete!)
-        }
-    }
 }
