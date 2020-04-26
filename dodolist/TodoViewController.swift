@@ -66,6 +66,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         
         titleLabel?.text = notComplete_filtered[indexPath.row].title
         dateLabel?.text = notComplete_filtered[indexPath.row].deadline
+        tagsLabel?.text = notComplete_filtered[indexPath.row].tag
         
         // setting 반영
         // 폰트 사이즈 결정
