@@ -272,7 +272,6 @@
                                 <segue destination="C8L-be-38l" kind="show" identifier="SettingSegue" id="I7Q-pB-2qP"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Setting" image="plus" catalog="system" style="plain" id="O52-le-gXt">
                         <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" style="plain" id="AGT-Ii-J7N">
                             <connections>
                                 <segue destination="bE0-zO-CjU" kind="show" id="YF3-Pb-E4s"/>
