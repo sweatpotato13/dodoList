@@ -10,6 +10,8 @@ import UIKit
 var Completed_filtered = [Todo]()
 
 class FinishedViewController : UITableViewController {
+    
+    let ad = UIApplication.shared.delegate as? AppDelegate
         
     @IBOutlet var finishedTableView: UITableView!
     override func viewWillAppear(_ animated: Bool) {
@@ -25,12 +27,17 @@ class FinishedViewController : UITableViewController {
     // n번째 섹션의 m번째 row를 그리는데 필요한 cell을 반환하는 메소드입니다
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.finishedTitleLabel?.text = Completed_filtered[indexPath.row].title
-        cell.finishedDateLabel?.text = Completed_filtered[indexPath.row].deadline
-        cell.finishedTagsLabel?.text = Completed_filtered[indexPath.row].tag
         
-//        cell.textLabel?.text = Completed_filtered[indexPath.row].title
-//        cell.detailTextLabel?.text = Completed_filtered[indexPath.row].deadline
+        let titleLabel = cell.finishedTitleLabel
+        let dateLabel = cell.finishedDateLabel
+        let tagsLabel = cell.finishedTagsLabel
+        
+        titleLabel?.text = Completed_filtered[indexPath.row].title
+        dateLabel?.text = Completed_filtered[indexPath.row].deadline
+        tagsLabel?.text = Completed_filtered[indexPath.row].tag
+        
+        setFontSize(ad: ad, titleLabel, dateLabel, tagsLabel)
+        
         if Completed_filtered[indexPath.row].isComplete {
             cell.accessoryType = .checkmark
         }else{
