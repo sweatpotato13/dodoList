@@ -97,6 +97,11 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         let dateLabel = cell.dateLabel
         let tagsLabel = cell.tagsLabel
         
+        // date를 string이 아니라 Date 형태로 저장 가능한지 초롱이한테 물어보기
+//        if((ad?.alarm) != nil) {
+//            ad?.showEduNotification(date: DateFormatter().date(from: notComplete_filtered[indexPath.row].deadline!)!)
+//        }
+        
         titleLabel?.text = notComplete_filtered[indexPath.row].title
         dateLabel?.text = notComplete_filtered[indexPath.row].deadline
         tagsLabel?.text = notComplete_filtered[indexPath.row].tag
