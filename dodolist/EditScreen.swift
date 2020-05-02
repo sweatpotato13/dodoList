@@ -19,6 +19,7 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var lblPriority: UILabel!
     @IBOutlet weak var lblTag: UILabel!
     @IBOutlet weak var tfDesc: UITextField!
+    @IBOutlet weak var swComplete: UISwitch!
     
     private func editData(index: Int){
         aList[index].title = tfTitle.text
@@ -26,6 +27,7 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
         aList[index].priority = lblPriority.text ?? "Mid"
         aList[index].tag = lblTag.text ?? "None"
         aList[index].description = tfDesc.text ?? ""
+        aList[index].isComplete = swComplete.isOn
     }
     
     private func removeData(index: Int){
@@ -47,6 +49,7 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
         lblPriority.text = aList[index].priority
         lblTag.text = aList[index].tag
         tfDesc.text = aList[index].description
+        swComplete.isOn = aList[index].isComplete
     }
     
     @IBAction func btnEdit(_ sender: Any) {
@@ -61,7 +64,7 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
         saveAllData()
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     @IBAction func dpDataAction(_ sender: Any) {
         dpShowDateChanged()
     }

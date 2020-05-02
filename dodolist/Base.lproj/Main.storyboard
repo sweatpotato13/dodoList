@@ -870,6 +870,61 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cgW-Hj-OJw">
+                                        <rect key="frame" x="0.0" y="670" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cgW-Hj-OJw" id="Ct9-Rj-7cq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecD-ED-5QN" userLabel="Completed">
+                                                    <rect key="frame" x="20" y="12" width="90" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="6DJ-6O-nma"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="6DJ-6O-nma"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="6DJ-6O-nma"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-jD-rrA">
+                                                    <rect key="frame" x="336" y="7" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ecD-ED-5QN" firstAttribute="leading" secondItem="Ct9-Rj-7cq" secondAttribute="leadingMargin" id="2Kx-va-q7B"/>
+                                                <constraint firstItem="ecD-ED-5QN" firstAttribute="centerY" secondItem="Ct9-Rj-7cq" secondAttribute="centerY" id="y9E-2S-40R"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="ecD-ED-5QN"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="2Kx-va-q7B"/>
+                                                    <exclude reference="y9E-2S-40R"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="ecD-ED-5QN"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="2Kx-va-q7B"/>
+                                                    <include reference="y9E-2S-40R"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -899,13 +954,14 @@
                         <outlet property="lblTag" destination="OEE-Ns-TmH" id="2Oj-69-KMK"/>
                         <outlet property="pvPriority" destination="etX-YO-d4z" id="QfM-lk-thX"/>
                         <outlet property="pvTag" destination="wst-n3-2a5" id="3cC-JM-Lh2"/>
+                        <outlet property="swComplete" destination="CLB-jD-rrA" id="8Wv-ed-ucv"/>
                         <outlet property="tfDesc" destination="SC5-Ib-cs1" id="kSC-A7-Kyq"/>
                         <outlet property="tfTitle" destination="3oe-Io-ZJl" id="vRo-Oj-mVu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IL-hy-Lnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4180" y="2393"/>
+            <point key="canvasLocation" x="4179.7101449275369" y="2392.6339285714284"/>
         </scene>
     </scenes>
     <resources>
