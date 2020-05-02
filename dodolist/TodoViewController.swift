@@ -10,6 +10,7 @@ import UIKit
 
 var aList = [Todo]()
 var notComplete_filtered = [Todo]()
+var clickedTitle = ""
 func loadAllData() {
     let userDefaults = UserDefaults.standard
     guard let data = userDefaults.object(forKey: "items") as? [[String: AnyObject]] else {
@@ -131,6 +132,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*
         if let cell = tableView.cellForRow(at: indexPath) {
             if cell.accessoryType == .none{
                 notComplete_filtered[indexPath.row].isComplete = true
@@ -146,6 +148,11 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         }
         saveAllData()
         todoTableView.reloadData()
+        */
+        if tableView.cellForRow(at: indexPath) != nil{
+            clickedTitle = notComplete_filtered[indexPath.row].title!
+        }
+        print(clickedTitle)
     }
     // n번째 섹션에 몇개의 row가 있는지 반환하는 함수입니다
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

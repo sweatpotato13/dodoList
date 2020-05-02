@@ -7,8 +7,8 @@
 //
 
 import UIKit
-private let PriorityValues: [String] = ["High","Mid","Low"]
-private let TagValues: [String] = ["None","Home","School","Work"]
+let PriorityValues: [String] = ["High","Mid","Low"]
+let TagValues: [String] = ["None","Home","School","Work"]
 func saveAllData() {
     let data = aList.map {
         [
@@ -79,8 +79,8 @@ class AddScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDele
         pvTag.delegate = self
         pvPriority.tag = 1
         pvTag.tag = 2;
-
     }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
