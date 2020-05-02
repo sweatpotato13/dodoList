@@ -879,7 +879,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="기존 데이터 수정" id="yhA-W3-eSa" userLabel="기존 데이터 수정">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="sie-Jm-TZb"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="sie-Jm-TZb">
+                                <connections>
+                                    <action selector="btnEdit:" destination="Ng2-Dx-qrX" id="H88-Ol-Qeb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="epH-Ke-ccS" userLabel="Remove">
+                                <connections>
+                                    <action selector="btnRemove:" destination="Ng2-Dx-qrX" id="hpB-X6-mTO"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="dpShowDate" destination="bu6-7T-KCU" id="4wa-0D-DnL"/>

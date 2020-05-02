@@ -20,6 +20,18 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var lblTag: UILabel!
     @IBOutlet weak var tfDesc: UITextField!
     
+    private func editData(index: Int){
+        aList[index].title = tfTitle.text
+        aList[index].deadline = lblDate.text
+        aList[index].priority = lblPriority.text ?? "Mid"
+        aList[index].tag = lblTag.text ?? "None"
+        aList[index].description = tfDesc.text ?? ""
+    }
+    
+    private func removeData(index: Int){
+        aList.remove(at: index)
+    }
+    
     private func getIndex(){
         for i in 0...aList.count{
             if (aList[i].title == clickedTitle){
@@ -28,6 +40,7 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
             }
         }
     }
+    
     private func loadExistData(){
         tfTitle.text = aList[index].title
         lblDate.text = aList[index].deadline
@@ -35,6 +48,20 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
         lblTag.text = aList[index].tag
         tfDesc.text = aList[index].description
     }
+    
+    @IBAction func btnEdit(_ sender: Any) {
+        editData(index: index)
+        saveAllData()
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    @IBAction func btnRemove(_ sender: Any) {
+        removeData(index: index)
+        saveAllData()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func dpDataAction(_ sender: Any) {
         dpShowDateChanged()
     }
@@ -44,7 +71,7 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
         dateFormatter.dateStyle = .medium
         self.lblDate.text = dateFormatter.string(from: dpShowDate.date)
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -52,21 +79,31 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == pvPriority {
             return PriorityValues.count
-
+            
         } else if pickerView == pvTag{
-             return TagValues.count
+            return TagValues.count
         }
-
+        
         return 1
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == pvPriority {
             return PriorityValues[row]
-
+            
         } else if pickerView == pvTag{
-             return TagValues[row]
+            return TagValues[row]
         }
         return ""
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int,
+                    inComponent component: Int) {
+        if pickerView == pvPriority {
+            lblPriority.text = PriorityValues[row]
+        } else if pickerView == pvTag{
+            lblTag.text = TagValues[row]
+        }
     }
     
     override func viewDidLoad() {
