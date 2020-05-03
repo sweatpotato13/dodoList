@@ -56,20 +56,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         content.categoryIdentifier = "eduCategory"
         
         //Timmer
-        //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 300, repeats: false)
+        //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 30, repeats: false)
         
         //Date
-        //        let date = Date(timeIntervalSinceNow: 3600)
-        //        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
-        //        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate,repeats: false)
+                let date = Date(timeIntervalSinceNow: 20)
+                let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate,repeats: false)
         
         //Weekly
         //        let triggerWeekly = Calendar.current.dateComponents([.weekday,hour,.minute,.second,], from: date)
         //        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
         
         //Daily
-        let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        //let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
+        //let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
         
         
         

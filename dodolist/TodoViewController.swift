@@ -73,10 +73,22 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
   
     @IBOutlet var todoTableView: UITableView!
     
+    func setNotificationTrigger(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        if((ad?.alarm) != nil) {
+            for i in 0...notComplete_filtered.count-1{
+                let date = dateFormatter.date(from: notComplete_filtered[i].deadline ?? "")
+                ad?.showEduNotification(date: date!)
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         notComplete_filtered = aList.filter { $0.isComplete == false }
         todoTableView.reloadData()
+        setNotificationTrigger()
     }
     
     @IBAction func settingSegue(_ sender: Any) {
@@ -100,7 +112,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         
         // date를 string이 아니라 Date 형태로 저장 가능한지 초롱이한테 물어보기
 //        if((ad?.alarm) != nil) {
-//            ad?.showEduNotification(date: DateFormatter().date(from: notComplete_filtered[indexPath.row].deadline!)!)
+//           ad?.showEduNotification(date: DateFormatter().date(from: notComplete_filtered[indexPath.row].deadline!)!)
 //        }
         
         titleLabel?.text = notComplete_filtered[indexPath.row].title
