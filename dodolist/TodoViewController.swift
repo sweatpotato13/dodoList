@@ -89,6 +89,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         notComplete_filtered = aList.filter { $0.isComplete == false }
         todoTableView.reloadData()
         setNotificationTrigger()
+        setInterfaceStyle()
     }
     
     @IBAction func settingSegue(_ sender: Any) {
@@ -141,5 +142,17 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func back(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
+    }
+    func setInterfaceStyle(){
+        if ad?.darkMode ?? false{
+            tabBarController?.overrideUserInterfaceStyle = .dark
+            navigationController?.overrideUserInterfaceStyle = .dark
+            self.overrideUserInterfaceStyle = .dark
+        }
+        else{
+            tabBarController?.overrideUserInterfaceStyle = .light
+            navigationController?.overrideUserInterfaceStyle = .light
+            self.overrideUserInterfaceStyle = .light
+        }
     }
 }

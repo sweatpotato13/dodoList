@@ -66,5 +66,4 @@ class FinishedViewController : UITableViewController {
         saveAllData()
         finishedTableView.reloadData()
     }
-
 }
