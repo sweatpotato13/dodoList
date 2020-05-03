@@ -32,10 +32,43 @@ func loadAllData() {
     }
 }
 
+func setFontSize(ad: AppDelegate!, _ titleLabel: UILabel!, _ dateLabel: UILabel!, _ tagsLabel: UILabel!) {
+    var cellFontSize = UIFont.systemFont(ofSize: 17)
+    // 텍스트 설정
+    let titleText = NSMutableAttributedString(string: (titleLabel?.text!)!)
+    let dateText = NSMutableAttributedString(string: (dateLabel?.text!)!)
+    let tagsText = NSMutableAttributedString(string: (tagsLabel?.text!)!)
+    
+    if(ad?.fontSize == "Large") {
+        cellFontSize = UIFont.systemFont(ofSize: 25)
+        titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
+        dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
+        tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
+        titleLabel?.attributedText = titleText
+        dateLabel?.attributedText = dateText
+        tagsLabel?.attributedText = tagsText
+    } else if(ad?.fontSize == "Medium") {
+        cellFontSize = UIFont.systemFont(ofSize: 17)
+        titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
+        dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
+        tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
+        titleLabel?.attributedText = titleText
+        dateLabel?.attributedText = dateText
+        tagsLabel?.attributedText = tagsText
+    } else {
+        cellFontSize = UIFont.systemFont(ofSize: 9)
+        titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
+        dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
+        tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
+        titleLabel?.attributedText = titleText
+        dateLabel?.attributedText = dateText
+        tagsLabel?.attributedText = tagsText
+    }
+}
+
 class TodoViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // 설정값을 가져오기 위한 AppDelegate 객체 선언
-    // TODO :: 뷰가 불려질 때로 위치 이동 필요
     let ad = UIApplication.shared.delegate as? AppDelegate
   
     @IBOutlet var todoTableView: UITableView!
@@ -65,63 +98,16 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         let dateLabel = cell.dateLabel
         let tagsLabel = cell.tagsLabel
         
+        // date를 string이 아니라 Date 형태로 저장 가능한지 초롱이한테 물어보기
+//        if((ad?.alarm) != nil) {
+//            ad?.showEduNotification(date: DateFormatter().date(from: notComplete_filtered[indexPath.row].deadline!)!)
+//        }
+        
         titleLabel?.text = notComplete_filtered[indexPath.row].title
         dateLabel?.text = notComplete_filtered[indexPath.row].deadline
         tagsLabel?.text = notComplete_filtered[indexPath.row].tag
         
-        // setting 반영
-        // 폰트 사이즈 결정
-        var cellFontSize = UIFont.systemFont(ofSize: 17)
-        // 텍스트 설정
-        let titleText = NSMutableAttributedString(string: (titleLabel?.text!)!)
-        let dateText = NSMutableAttributedString(string: (dateLabel?.text!)!)
-        let tagsText = NSMutableAttributedString(string: (tagsLabel?.text!)!)
-        
-        if(ad?.fontSize == "Large") {
-            cellFontSize = UIFont.systemFont(ofSize: 25)
-            titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
-            dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
-            tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
-            titleLabel?.attributedText = titleText
-            dateLabel?.attributedText = dateText
-            tagsLabel?.attributedText = tagsText
-        } else if(ad?.fontSize == "Medium") {
-            cellFontSize = UIFont.systemFont(ofSize: 17)
-            titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
-            dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
-            tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
-            titleLabel?.attributedText = titleText
-            dateLabel?.attributedText = dateText
-            tagsLabel?.attributedText = tagsText
-        } else {
-            cellFontSize = UIFont.systemFont(ofSize: 9)
-            titleText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (titleLabel?.text!.count)!))
-            dateText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (dateLabel?.text!.count)!))
-            tagsText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: cellFontSize, range: NSMakeRange(0, (tagsLabel?.text!.count)!))
-            titleLabel?.attributedText = titleText
-            dateLabel?.attributedText = dateText
-            tagsLabel?.attributedText = tagsText
-        }
-        
-//        cell.textLabel?.text = aList[indexPath.row].title
-//        cell.detailTextLabel?.text = aList[indexPath.row].deadline
-        
-        //        var fontSizeSetted = UIFont.systemFont(ofSize: 17)
-        //        var fontSizeText = NSMutableAttributedString(string: fontSizeLabel.text!)
-        //        if(ad?.fontSize == "Large") {
-        //            fontSizeSetted = UIFont.systemFont(ofSize: 25)
-        //            fontSizeText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSizeSetted, range: NSMakeRange(0, 9))
-        //            fontSizeLabel.attributedText = fontSizeText
-        //        } else if(ad?.fontSize == "Medium") {
-        //            fontSizeSetted = UIFont.systemFont(ofSize: 17)
-        //            fontSizeText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSizeSetted, range: NSMakeRange(0, 9))
-        //            fontSizeLabel.attributedText = fontSizeText
-        //        } else {
-        //            fontSizeSetted = UIFont.systemFont(ofSize:9)
-        //            fontSizeText.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSizeSetted, range: NSMakeRange(0, 9))
-        //            fontSizeLabel.attributedText = fontSizeText
-        //        }
-        
+        setFontSize(ad: ad, titleLabel, dateLabel, tagsLabel)
         
         if notComplete_filtered[indexPath.row].isComplete {
          cell.accessoryType = .checkmark

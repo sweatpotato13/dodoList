@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     /* 앱 설정 변수 */
     var window: UIWindow?
@@ -22,7 +22,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: { (authorized, error) in
+            if !authorized {
+               print("App is useless becase you did not allow notification")
+            }
+        })
+
+        let HollowAction = UNNotificationAction(identifier: "addHellow", title: "Hellow", options: [])
+        let ByeAction = UNNotificationAction(identifier: "addBye", title: "Bye", options: [])
+        let category = UNNotificationCategory(identifier: "eduCategory", actions: [HollowAction, ByeAction], intentIdentifiers: [], options: [])
+
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        UNUserNotificationCenter.current().delegate = self
+
         return true
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.actionIdentifier == "addHellow" {
+            print("Say Hellow!")
+        }else{
+            print("Say Bye~")
+        }
+    }
+    
+    func showEduNotification(date: Date){
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Say Hello"
+        content.body = "Jusy a remind Me"
+        content.sound = UNNotificationSound.default
+        content.categoryIdentifier = "eduCategory"
+        
+        //Timmer
+        //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 300, repeats: false)
+        
+        //Date
+        //        let date = Date(timeIntervalSinceNow: 3600)
+        //        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+        //        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate,repeats: false)
+        
+        //Weekly
+        //        let triggerWeekly = Calendar.current.dateComponents([.weekday,hour,.minute,.second,], from: date)
+        //        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
+        
+        //Daily
+        let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        
+        
+        
+        let request = UNNotificationRequest(identifier: "eduNotification", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request){ (error) in
+            if let error = error {
+                print("Error:\(error.localizedDescription)")
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle
