@@ -21,6 +21,19 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var tfDesc: UITextField!
     @IBOutlet weak var swComplete: UISwitch!
     
+    func setDefaultValue(){
+        if let indexPosition = PriorityValues.firstIndex(of: lblPriority.text ?? "Mid"){
+            pvPriority.selectRow(indexPosition, inComponent: 0, animated: true)
+        }
+        if let indexPosition = TagValues.firstIndex(of: lblTag.text ?? "None"){
+            pvTag.selectRow(indexPosition, inComponent: 0, animated: true)
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        let date = dateFormatter.date(from: lblDate.text ?? "")
+        dpShowDate.date = date!
+    }
+    
     private func editData(index: Int){
         aList[index].title = tfTitle.text
         aList[index].deadline = lblDate.text
@@ -120,5 +133,6 @@ class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDel
         pvTag.tag = 2;
         getIndex()
         loadExistData()
+        setDefaultValue()
     }
 }
