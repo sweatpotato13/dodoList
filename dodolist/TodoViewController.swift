@@ -79,7 +79,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         if((ad?.alarm) != nil) {
             for i in 0...notComplete_filtered.count-1{
                 let date = dateFormatter.date(from: notComplete_filtered[i].deadline ?? "")
-                ad?.showEduNotification(date: date!)
+                ad?.showEduNotification(title: notComplete_filtered[i].title!, date: date!)
             }
         }
     }
