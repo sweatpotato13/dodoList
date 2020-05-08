@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().setNotificationCategories([category])
         UNUserNotificationCenter.current().delegate = self
 
+        // Override point for customization after application launch.
+        Thread.sleep(forTimeInterval: 2.0)
         return true
     }
     
