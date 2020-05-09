@@ -11,7 +11,7 @@
 		047640482455224800C234F8 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047640472455224800C234F8 /* FinishedViewController.swift */; };
 		049661AE245C654F00F08B09 /* EditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049661AD245C654F00F08B09 /* EditScreen.swift */; };
 		103A2C25245434FE002CB3EF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A2C24245434FE002CB3EF /* TableViewCell.swift */; };
-		10608C14246598A4007D32DB /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10608C10245E6650007D32DB /* LocalAuthentication.framework */; };
+		10608C1724663F6D007D32DB /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10608C10245E6650007D32DB /* LocalAuthentication.framework */; };
 		10E9525B243C718D00B7D9E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525A243C718C00B7D9E9 /* SettingViewController.swift */; };
 		10E9525D243C7D9300B7D9E9 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */; };
 		BE176C91244A955C00D4FE88 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE176C90244A955C00D4FE88 /* Todo.swift */; };
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10608C14246598A4007D32DB /* LocalAuthentication.framework in Frameworks */,
+				10608C1724663F6D007D32DB /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

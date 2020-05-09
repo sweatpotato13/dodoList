@@ -113,61 +113,63 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if((ad?.pass) == false) {
+        if((ad?.lock) == true) {
+            if((ad?.pass) == false) {
 
-            let authContext = LAContext()
+                let authContext = LAContext()
 
-            var error: NSError?
-            
-            let description: String?
+                var error: NSError?
+                
+                let description: String?
 
-            if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "잠금모드, 인증 필요", reply: { success, error in
-                    // 이걸 while success로 바꾼다?
-                    while(success) {
-                    if success {
-                        // Fingerprint recognized
-                        self.ad?.pass = true
-                        // 네비게이션 뷰 컨트롤러에 생성해보자.
-                        // 안되면 별도의 뷰를 생성해야 할 것 같다.
-                        DispatchQueue.main.async{
-                            print("Authentication success by the system")
-                            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                            let homeVC = storyBoard.instantiateViewController(withIdentifier: "Main")
-                            self.navigationController?.pushViewController(homeVC, animated: true)
+                if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                    authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "잠금모드, 인증 필요", reply: { success, error in
+                        // 이걸 while success로 바꾼다?
+                        while(success) {
+                        if success {
+                            // Fingerprint recognized
+                            self.ad?.pass = true
+                            // 네비게이션 뷰 컨트롤러에 생성해보자.
+                            // 안되면 별도의 뷰를 생성해야 할 것 같다.
+                            DispatchQueue.main.async{
+                                print("Authentication success by the system")
+                                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                                let homeVC = storyBoard.instantiateViewController(withIdentifier: "Main")
+                                self.navigationController?.pushViewController(homeVC, animated: true)
+                            }
+                            break
+                        } else {
+                            if let err = error {
+                                print(err.localizedDescription)
+                                // TODO ::
+                                // 취소 버튼 누를 때 앱을 바로 이용할 수 있음.
+                                // 페이스 인증 실패 후 다시 인증하면 이 부분을 동작하는데 앱이 꺼지게 됨.
+                            }
                         }
-                        break
-                    } else {
-                        if let err = error {
-                            print(err.localizedDescription)
-                            // TODO ::
-                            // 취소 버튼 누를 때 앱을 바로 이용할 수 있음.
-                            // 페이스 인증 실패 후 다시 인증하면 이 부분을 동작하는데 앱이 꺼지게 됨.
-                        }
-                    }
-                }})
-            } else {
-                let errorDescription = error?.userInfo["NSLocalizedDescription"] ?? ""
-                print(errorDescription)
-                description = "계정 정보를 열람하기 위해서는 로그인하십시오."
+                    }})
+                } else {
+                    let errorDescription = error?.userInfo["NSLocalizedDescription"] ?? ""
+                    print(errorDescription)
+                    description = "계정 정보를 열람하기 위해서는 로그인하십시오."
 
-                let alertController = UIAlertController(title: "Authentication Required", message: description, preferredStyle: .alert)
-                weak var usernameTextField: UITextField!
-                alertController.addTextField(configurationHandler: { textField in
-                    textField.placeholder = "User ID"
-                    usernameTextField = textField
-                })
-                weak var passwordTextField: UITextField!
-                alertController.addTextField(configurationHandler: { textField in
-                    textField.placeholder = "password"
-                    textField.isSecureTextEntry = true
-                    passwordTextField = textField
-                })
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                alertController.addAction(UIAlertAction(title: "Log in", style: .destructive, handler: { action in
-                    print(usernameTextField.text! + "\n" + passwordTextField.text!)
-                }))
-                self.present(alertController, animated: true, completion: nil)
+                    let alertController = UIAlertController(title: "Authentication Required", message: description, preferredStyle: .alert)
+                    weak var usernameTextField: UITextField!
+                    alertController.addTextField(configurationHandler: { textField in
+                        textField.placeholder = "User ID"
+                        usernameTextField = textField
+                    })
+                    weak var passwordTextField: UITextField!
+                    alertController.addTextField(configurationHandler: { textField in
+                        textField.placeholder = "password"
+                        textField.isSecureTextEntry = true
+                        passwordTextField = textField
+                    })
+                    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    alertController.addAction(UIAlertAction(title: "Log in", style: .destructive, handler: { action in
+                        print(usernameTextField.text! + "\n" + passwordTextField.text!)
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
         }
     }
