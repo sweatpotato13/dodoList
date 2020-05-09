@@ -80,7 +80,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         if((ad?.alarm) != nil) {
             for i in 0...notComplete_filtered.count-1{
                 let date = dateFormatter.date(from: notComplete_filtered[i].deadline ?? "")
-                ad?.showEduNotification(date: date!)
+                ad?.showEduNotification(title: notComplete_filtered[i].title!, date: date!)
             }
         }
     }
@@ -90,6 +90,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         notComplete_filtered = aList.filter { $0.isComplete == false }
         todoTableView.reloadData()
         setNotificationTrigger()
+        setInterfaceStyle()
     }
     
     @IBAction func settingSegue(_ sender: Any) {
@@ -198,5 +199,16 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func back(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
-    
+    func setInterfaceStyle(){
+        if ad?.darkMode ?? false{
+            tabBarController?.overrideUserInterfaceStyle = .dark
+            navigationController?.overrideUserInterfaceStyle = .dark
+            self.overrideUserInterfaceStyle = .dark
+        }
+        else{
+            tabBarController?.overrideUserInterfaceStyle = .light
+            navigationController?.overrideUserInterfaceStyle = .light
+            self.overrideUserInterfaceStyle = .light
+        }
+    }
 }

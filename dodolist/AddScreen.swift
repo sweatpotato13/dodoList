@@ -26,6 +26,7 @@ func saveAllData() {
 }
 
 class AddScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    let ad = UIApplication.shared.delegate as? AppDelegate
 
     @IBOutlet weak var lblShowData: UILabel!
     @IBOutlet weak var dpShowDate: UIDatePicker!

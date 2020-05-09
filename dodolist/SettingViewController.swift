@@ -70,5 +70,4 @@ class SettingViewController : UIViewController {
                 return
         }
     }
-    
 }

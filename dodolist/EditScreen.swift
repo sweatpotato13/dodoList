@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 class EditScreen: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+    let ad = UIApplication.shared.delegate as? AppDelegate
+
     var index = 0
     @IBOutlet weak var pvPriority: UIPickerView!
     @IBOutlet weak var pvTag: UIPickerView!

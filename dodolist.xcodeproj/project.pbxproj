@@ -15,6 +15,8 @@
 		10E9525B243C718D00B7D9E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525A243C718C00B7D9E9 /* SettingViewController.swift */; };
 		10E9525D243C7D9300B7D9E9 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */; };
 		BE176C91244A955C00D4FE88 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE176C90244A955C00D4FE88 /* Todo.swift */; };
+		BE176C96245E6A2400D4FE88 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE176C95245E6A2400D4FE88 /* NavigationController.swift */; };
+		BE176C98245E6AD400D4FE88 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE176C97245E6AD400D4FE88 /* TabBarController.swift */; };
 		BE9F5F3C2439DCEA00681439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F5F3B2439DCEA00681439 /* AppDelegate.swift */; };
 		BE9F5F3E2439DCEA00681439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F5F3D2439DCEA00681439 /* SceneDelegate.swift */; };
 		BE9F5F402439DCEA00681439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F5F3F2439DCEA00681439 /* ViewController.swift */; };
@@ -32,6 +34,8 @@
 		10E9525A243C718C00B7D9E9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		BE176C90244A955C00D4FE88 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		BE176C95245E6A2400D4FE88 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		BE176C97245E6AD400D4FE88 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BE9F5F382439DCEA00681439 /* dodolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dodolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE9F5F3B2439DCEA00681439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE9F5F3D2439DCEA00681439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				0476403F24545AF700C234F8 /* AddScreen.swift */,
 				103A2C24245434FE002CB3EF /* TableViewCell.swift */,
 				049661AD245C654F00F08B09 /* EditScreen.swift */,
+				BE176C95245E6A2400D4FE88 /* NavigationController.swift */,
+				BE176C97245E6AD400D4FE88 /* TabBarController.swift */,
 			);
 			path = dodolist;
 			sourceTree = "<group>";
@@ -171,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE176C96245E6A2400D4FE88 /* NavigationController.swift in Sources */,
+				BE176C98245E6AD400D4FE88 /* TabBarController.swift in Sources */,
 				047640482455224800C234F8 /* FinishedViewController.swift in Sources */,
 				10E9525B243C718D00B7D9E9 /* SettingViewController.swift in Sources */,
 				103A2C25245434FE002CB3EF /* TableViewCell.swift in Sources */,
@@ -324,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = dodolist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -342,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = dodolist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;

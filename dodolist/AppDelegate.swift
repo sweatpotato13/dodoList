@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().setNotificationCategories([category])
         UNUserNotificationCenter.current().delegate = self
 
+        // Override point for customization after application launch.
+        Thread.sleep(forTimeInterval: 2.0)
         return true
     }
     
@@ -48,11 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    func showEduNotification(date: Date){
+    func showEduNotification(title: String, date: Date){
         
         let content = UNMutableNotificationContent()
-        content.title = "Say Hello"
-        content.body = "Jusy a remind Me"
+        content.title = title
+        content.body = "Just a remind Me"
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = "eduCategory"
         
