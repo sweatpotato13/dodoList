@@ -77,10 +77,18 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
     func setNotificationTrigger(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
-        if((ad?.alarm) != nil) {
-            for i in 0...notComplete_filtered.count-1{
-                let date = dateFormatter.date(from: notComplete_filtered[i].deadline ?? "")
-                ad?.showEduNotification(title: notComplete_filtered[i].title!, date: date!)
+        if((ad?.alarm) == true) {
+            print(notComplete_filtered.count)
+            if(notComplete_filtered.count == 0){
+                // DO NOTHING
+            }
+            else{
+                for i in 0...notComplete_filtered.count-1{
+                    let date = dateFormatter.date(from: notComplete_filtered[i].deadline ?? "")
+                    if(date != nil){
+                        ad?.showEduNotification(title: notComplete_filtered[i].title!, date: date!)
+                    }
+                }
             }
         }
     }
