@@ -11,6 +11,7 @@
 		047640482455224800C234F8 /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047640472455224800C234F8 /* FinishedViewController.swift */; };
 		049661AE245C654F00F08B09 /* EditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049661AD245C654F00F08B09 /* EditScreen.swift */; };
 		103A2C25245434FE002CB3EF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A2C24245434FE002CB3EF /* TableViewCell.swift */; };
+		10608C14246598A4007D32DB /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10608C10245E6650007D32DB /* LocalAuthentication.framework */; };
 		10E9525B243C718D00B7D9E9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525A243C718C00B7D9E9 /* SettingViewController.swift */; };
 		10E9525D243C7D9300B7D9E9 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */; };
 		BE176C91244A955C00D4FE88 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE176C90244A955C00D4FE88 /* Todo.swift */; };
@@ -29,6 +30,7 @@
 		047640472455224800C234F8 /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		049661AD245C654F00F08B09 /* EditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScreen.swift; sourceTree = "<group>"; };
 		103A2C24245434FE002CB3EF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		10608C10245E6650007D32DB /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		10E9525A243C718C00B7D9E9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		10E9525C243C7D9300B7D9E9 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		BE176C90244A955C00D4FE88 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
@@ -49,17 +51,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10608C14246598A4007D32DB /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10608C0F245E6650007D32DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10608C10245E6650007D32DB /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE9F5F2F2439DCEA00681439 = {
 			isa = PBXGroup;
 			children = (
 				BE9F5F3A2439DCEA00681439 /* dodolist */,
 				BE9F5F392439DCEA00681439 /* Products */,
+				10608C0F245E6650007D32DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

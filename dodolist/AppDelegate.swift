@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var darkMode: Bool? = false
     var alarm: Bool? = false
     var lock: Bool? = false
+    var pass: Bool? = false
     /* ================== */
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
