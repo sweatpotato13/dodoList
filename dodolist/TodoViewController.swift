@@ -197,12 +197,6 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.cellForRow(at: indexPath) != nil{
-            clickedTitle = notComplete_filtered[indexPath.row].title!
-        }
-    }
-    
     // n번째 섹션에 몇개의 row가 있는지 반환하는 함수입니다
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notComplete_filtered.count
@@ -246,7 +240,7 @@ class TodoViewController : UIViewController, UITableViewDataSource, UITableViewD
             self.removeData(index: idx);
             saveAllData()
         }
-        
+        self.todoTableView.reloadData()
         edit.backgroundColor = UIColor.black
         return UISwipeActionsConfiguration(actions: [delete, edit, complete])
     }

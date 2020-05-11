@@ -45,25 +45,53 @@ class FinishedViewController : UITableViewController {
         }
         return cell
     }
+    
+    private func removeData(index: Int){
+        aList.remove(at: index)
+    }
+    
+    private func getIndex() -> Int{
+        for i in 0...aList.count{
+            if (aList[i].title == swipedTitle){
+                return i;
+            }
+        }
+        return -1
+    }
+
+    public override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if tableView.cellForRow(at: indexPath) != nil{
+            swipedTitle = Completed_filtered[indexPath.row].title!
+        }
+        let idx = getIndex()
+        print(aList[idx])
+        let edit = UIContextualAction(style: .normal, title: "Edit"){
+            action, view, completion in completion(true)
+            if tableView.cellForRow(at: indexPath) != nil{
+                clickedTitle = Completed_filtered[indexPath.row].title!
+            }
+            self.performSegue(withIdentifier: "EditScreen", sender: nil)
+        }
+
+        let complete = UIContextualAction(style: .normal, title: "Not Complete"){
+            action, view, completion in completion(true)
+            aList[idx].isComplete = false
+            saveAllData()
+        }
+        
+        let delete = UIContextualAction(style: .destructive, title: "Delete") {
+            action, view, completion in completion(true)
+            self.removeData(index: idx);
+            saveAllData()
+        }
+        
+        edit.backgroundColor = UIColor.black
+        return UISwipeActionsConfiguration(actions: [delete, edit, complete])
+    }
+
+    
     // n번째 섹션에 몇개의 row가 있는지 반환하는 함수입니다
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Completed_filtered.count
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .checkmark{
-                Completed_filtered[indexPath.row].isComplete = false
-                cell.accessoryType = .none
-            }
-        }
-        aList = aList.map { (Todo) -> Todo in
-            var Todo = Todo
-            if Todo.title == Completed_filtered[indexPath.row].title {
-                Todo.isComplete = false
-            }
-            return Todo
-        }
-        saveAllData()
-        finishedTableView.reloadData()
     }
 }
