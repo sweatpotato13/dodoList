@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let content = UNMutableNotificationContent()
         content.title = title
-        content.body = "Just a remind Me"
+        content.body = "뭔가 잊어버린 일이 없으신가요?"
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = "eduCategory"
         
