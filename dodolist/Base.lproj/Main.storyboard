@@ -217,7 +217,6 @@
                                     <outlet property="dateLabel" destination="uZ7-UR-mGe" id="1UL-Tu-N45"/>
                                     <outlet property="tagsLabel" destination="28M-vk-kYK" id="1bh-au-U5U"/>
                                     <outlet property="titleLabel" destination="DIy-4p-qhb" id="BfR-hk-sqg"/>
-                                    <segue destination="Ng2-Dx-qrX" kind="show" identifier="EditScreen" id="HHJ-c6-Wus"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -243,6 +242,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="todoTableView" destination="VXb-cS-hAn" id="SyT-RT-p9R"/>
+                        <segue destination="Ng2-Dx-qrX" kind="show" identifier="EditScreen" id="8ao-36-hOe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksq-M7-8Rn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
