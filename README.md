@@ -7,7 +7,7 @@ TodoList Application for iOS
 ![stars](https://img.shields.io/github/stars/sweatpotato13/Swift_Project?style=plastic)
 
 
-![example](https://i.imgur.com/R3sApLF.png)
+![example](https://i.imgur.com/7D6xQYn.png)
 
 ## Prerequisites
 
