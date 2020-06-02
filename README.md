@@ -9,8 +9,15 @@ TodoList Application for iOS
 
 ![example](https://i.imgur.com/7D6xQYn.png)
 
-## Prerequisites
+## feature
 
+* Add/Delete/Edit Task
+* View completed Task and not completed task separately
+* change font size
+* Dark mode
+* Turn on/off notification
+
+## Prerequisites
 
 ```
 iOS 8 or above
